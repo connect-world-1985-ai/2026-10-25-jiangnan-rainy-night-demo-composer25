@@ -102,7 +102,8 @@ Use **低** on older integrated graphics. The quality presets disable shadows, b
 
 GitHub Actions workflow `.github/workflows/deploy.yml` builds with `GITHUB_ACTIONS=true` so Vite `base` is `/2026-10-25-jiangnan-rainy-night-demo-composer25/`.
 
-Enable **GitHub Pages** → Source: **GitHub Actions**.
+Enable **GitHub Pages** in the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.  
+If the first deploy failed with HTTP 404, enable Pages and re-run the **Deploy to GitHub Pages** workflow on `main`.
 
 ---
 
