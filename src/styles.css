@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0c10;
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  color: #e8e4dc;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  max-width: min(320px, 42vw);
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+
+.hud-panel,
+.hud-footer,
+.hud-title {
+  pointer-events: auto;
+}
+
+.hud-title {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(200, 180, 140, 0.25);
+}
+
+.title-main {
+  display: block;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: 0.15em;
+  color: #f5f0e6;
+}
+
+.title-sub {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  letter-spacing: 0.35em;
+}
+
+.hud-panel {
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 22, 28, 0.72) 0%,
+    rgba(12, 14, 18, 0.55) 100%
+  );
+  border: 1px solid rgba(180, 160, 120, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+}
+
+.hud-panel h2 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  opacity: 0.65;
+  margin-bottom: 8px;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid rgba(200, 180, 140, 0.35);
+  background: rgba(30, 32, 38, 0.85);
+  color: #e8e0d4;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background: rgba(50, 48, 42, 0.9);
+  border-color: rgba(220, 200, 160, 0.5);
+}
+
+button.active {
+  background: rgba(80, 60, 40, 0.75);
+  border-color: rgba(240, 200, 140, 0.55);
+  color: #fff8ee;
+}
+
+.sliders label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.sliders label span {
+  min-width: 2.5em;
+  opacity: 0.8;
+}
+
+.sliders input[type='range'] {
+  flex: 1;
+  accent-color: #c9a86c;
+}
+
+.help p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.hud-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 0.65rem;
+  opacity: 0.55;
+}
+
+.icon-btn {
+  padding: 4px 8px;
+  font-size: 1rem;
+}
+
+.fps-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: rgba(10, 12, 16, 0.75);
+  border: 1px solid rgba(180, 160, 120, 0.3);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.fps-hint.hidden {
+  display: none;
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a1e28 0%, #080a0e 70%);
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.2em;
+}
+
+.loader-bar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#loader-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #6a7a8a, #c9a86c);
+  transition: width 0.2s;
+}
+
+@media (max-width: 600px) {
+  .hud {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    max-width: none;
+  }
+
+  .hud-panel.sliders {
+    display: none;
+  }
+}

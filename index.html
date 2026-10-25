@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>江南雨夜 · Jiangnan Rainy Night</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="canvas"></canvas>
+      <div id="hud" class="hud">
+        <header class="hud-title">
+          <span class="title-main">江南雨夜</span>
+          <span class="title-sub">水墨古镇</span>
+        </header>
+        <section class="hud-panel" id="camera-panel">
+          <h2>观景</h2>
+          <div class="btn-row">
+            <button type="button" data-camera="0" class="cam-btn active">石桥</button>
+            <button type="button" data-camera="1" class="cam-btn">舟行</button>
+            <button type="button" data-camera="2" class="cam-btn">巷陌</button>
+            <button type="button" data-camera="3" class="cam-btn">俯瞰</button>
+          </div>
+        </section>
+        <section class="hud-panel">
+          <h2>模式</h2>
+          <div class="btn-row">
+            <button type="button" id="mode-cinematic" class="mode-btn active">映画</button>
+            <button type="button" id="mode-fps" class="mode-btn">漫步</button>
+            <button type="button" id="mode-orbit" class="mode-btn">巡游</button>
+          </div>
+        </section>
+        <section class="hud-panel">
+          <h2>画质</h2>
+          <div class="btn-row">
+            <button type="button" data-quality="low" class="quality-btn">低</button>
+            <button type="button" data-quality="medium" class="quality-btn active">中</button>
+            <button type="button" data-quality="high" class="quality-btn">高</button>
+          </div>
+        </section>
+        <section class="hud-panel sliders">
+          <label>
+            <span>雨势</span>
+            <input type="range" id="rain-slider" min="0" max="1" step="0.01" value="0.65" />
+          </label>
+          <label>
+            <span>雾霭</span>
+            <input type="range" id="fog-slider" min="0" max="1" step="0.01" value="0.55" />
+          </label>
+        </section>
+        <section class="hud-panel help" id="help-panel">
+          <h2>操作</h2>
+          <p id="help-text">数字键 1–4 切换镜头 · 映画模式自动运镜</p>
+        </section>
+        <footer class="hud-footer">
+          <button type="button" id="mute-btn" class="icon-btn" aria-label="静音">🔊</button>
+          <span class="credit">Composer 2.5 · Cursor Cloud Agent</span>
+        </footer>
+      </div>
+      <div id="fps-hint" class="fps-hint hidden">
+        点击画面进入漫步 · WASD 移动 · 鼠标环顾 · Esc 退出
+      </div>
+      <div id="loader">
+        <div class="loader-inner">
+          <p class="loader-title">烟雨入江南</p>
+          <div class="loader-bar"><div id="loader-progress"></div></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
